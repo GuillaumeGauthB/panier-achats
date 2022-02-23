@@ -1,6 +1,5 @@
 {
-  "remarque-importante": "Pour publier sur GH Pages, renommer la prochaine prop 'homepage'",
-  "homepage-ghpages": "https://582-4PA-H22.github.io/panier-achats",
+  "homepage-ghpages": "https://GuillaumeGauthB.github.io/panier-achats",
   "name": "panier-achats",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +15,7 @@
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

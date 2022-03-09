@@ -8,6 +8,9 @@ import Accueil from './Accueil';
 import Histoire from './Histoire';
 
 function App() {
+  // Etat de l'utilisateur connecter
+  const [util,setUtil] = useState(null);
+
   // Etat React pour gerer un panier d'achats
   const etatPanier = useState(() => JSON.parse(window.localStorage.getItem('panier-4pa')) || {});
   // Remarquez que useState retourne un tableau:
@@ -26,18 +29,20 @@ function App() {
 
   return (
     <div className="App">
-      <Entete panier={panier} />
-      <Routes>
-        <Route path="/" element={<Accueil/>}/>
-        <Route path="/notre-histoire" element={<Histoire/>}/>
-        <Route path="/nos-produits" element={<ListeProduits etatPanier={etatPanier} />}/>
-      </Routes>
-      
-      <div>
-        <span>Nombre de clics: <i className='compteur'>{compteur}</i></span>
-        <button onClick={() => {setCompteur(compteur + 1); /*compteurClic++;*/ console.log("hippity hoppity you are now my property: ", compteur)}}>CLiquez-moi</button>
-      </div>
-      <PiedPage />
+      {
+        util ?
+        <>
+          <Entete util={util} setUtil={setUtil} panier={panier} />
+          <Routes>
+            <Route path="/" element={<Accueil/>}/>
+            <Route path="/notre-histoire" element={<Histoire/>}/>
+            <Route path="/nos-produits" element={<ListeProduits etatPanier={etatPanier} />}/>
+          </Routes>
+          <PiedPage />
+        </>
+        :
+          <button>Connexion</button>
+      }
     </div>
   );
 }

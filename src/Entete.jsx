@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom';
 
 // Remarquez la destructuration dèobjet
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-export default function Entete({panier}) {
+export default function Entete({panier, util, setUtil}) {
     // console.log("Les props du composant Entête : ", props);
     // console.log("Le panier dans Entête : ", props.panier);
     const {articlesDifferents, articlesTotaux, sousTotal, taxes, total} = calculerInfoPanier(Object.values(panier));
@@ -28,6 +28,8 @@ export default function Entete({panier}) {
                 <div><span>Taxes</span><span>{taxes}</span></div>
                 <div><span>Total</span><span>{total}</span></div>
             </div>
+                <div>{util.displayName}</div>
+                <button>Déconnexion</button>
                 <Badge badgeContent={articlesTotaux} color="secondary">
                 <label htmlFor="cc-sommaire-panier"><ShoppingCartSharpIcon/></label>
                 </Badge>
